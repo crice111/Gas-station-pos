@@ -21,8 +21,11 @@ namespace GasStationPointOfSale
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Item i = new Item(textBox1.Text, decimal.Parse(textBox2.Text), checkBox1.Checked);
+            double price = decimal.Parse(textBox2.Text);            //Changed to ensure price is more than 0 on custom items
+            if(price>=0){
+            Item i = new Item(textBox1.Text, price, checkBox1.Checked);
             form.AddItemToTotal(i);
+            }
             Close();
         }
     }
